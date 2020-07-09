@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     };
 
     private Pregunta[] mPreguntas= new Pregunta[5];
-    int actual =0;
+    int act =0;
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         btnsiguiente.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(final View view){
-                actual=(actual+1)% preguntas.length;
+                act=(act+1)% preguntas.length;
                 setText();
 
             }
@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         btnanterior.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(final View view){
-                actual=(actual-1)% preguntas.length;
+                act=(act-1)% preguntas.length;
                 setText();
 
             }
@@ -87,10 +87,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
     void setText(){
-        txtPregunta.setText(preguntas[actual].getTextoId());
+        txtPregunta.setText(preguntas[act].getTextoId());
     }
     void verificarRespuesta(boolean result){
-        boolean respuesta= preguntas[actual].isRespuesta();
+        boolean respuesta= preguntas[act].isRespuesta();
 
         if(respuesta==result){
             Toast.makeText(MainActivity.this,"Correcto",Toast.LENGTH_SHORT).show();
